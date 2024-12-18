@@ -1,6 +1,6 @@
 const BASE_URL = "http://localhost:4000";
 
-// On Page Load - Fetch Financial Summary
+// On Page Load - Fetch Financial Summary and Data
 document.addEventListener("DOMContentLoaded", () => {
     fetchFinancialSummary();
     loadMembers();

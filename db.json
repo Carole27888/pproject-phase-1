@@ -1,35 +1,41 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Admin User",
       "email": "admin@gmail.com",
       "password": "admin123",
       "role": "admin"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Regular User",
       "email": "user@gmail.com",
       "password": "user123",
+      "role": "user"
+    },
+    {
+      "id": "7445",
+      "email": "user1@gmail.com",
+      "password": "user1",
       "role": "user"
     }
   ],
   "contributions": [
     {
-      "id": 1,
+      "id": "1",
       "userId": 2,
       "amount": 500,
       "date": "2024-12-01"
     },
     {
-      "id": 2,
+      "id": "2",
       "userId": 2,
       "amount": 300,
       "date": "2024-12-10"
     },
     {
-      "id": 3,
+      "id": "3",
       "userId": 2,
       "amount": 200,
       "date": "2024-12-15"
@@ -39,11 +45,17 @@
       "userId": 2,
       "amount": 600,
       "date": "2024-12-18"
+    },
+    {
+      "id": "ff28",
+      "userId": 2,
+      "amount": 200,
+      "date": "2024-12-18"
     }
   ],
   "loans": [
     {
-      "id": 1,
+      "id": "1",
       "userId": 2,
       "status": "approved",
       "amount": 1000,
@@ -51,23 +63,30 @@
       "due": 700
     },
     {
-      "id": 2,
+      "id": "2",
       "userId": 2,
       "status": "pending",
       "amount": 500,
       "paid": 0,
       "due": 500
+    },
+    {
+      "id": "3",
+      "userId": 2,
+      "status": "pending",
+      "amount": 800,
+      "paid": 0,
+      "due": 800
+    },
+    {
+      "id": "9e2e",
+      "userId": 2,
+      "amount": 600
     }
   ],
   "events": [
     {
-      "id": 1,
-      "name": "Monthly Meeting",
-      "date": "2024-12-15",
-      "location": "Community Hall"
-    },
-    {
-      "id": 2,
+      "id": "2",
       "name": "Fundraiser Event",
       "date": "2024-12-20",
       "location": "Local School"

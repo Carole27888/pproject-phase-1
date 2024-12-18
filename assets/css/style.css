@@ -7,12 +7,36 @@
 
 /* Body Styling */
 body {
-    background-color: #f8f9fa;
+    background: linear-gradient(to bottom right, #fff0f3, #ffe6eb); /* Light pink gradient background */
     font-family: 'Poppins', sans-serif;
+    color: #333; /* Dark grey for text */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Decorative Circles for Background */
+.decorative-circle {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background-color: #ffaec9; /* Light pink */
+    border-radius: 50%;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+.decorative-circle.top-left {
+    top: -50px;
+    left: -50px;
+}
+
+.decorative-circle.bottom-right {
+    bottom: -50px;
+    right: -50px;
 }
 
 /* Splash Screen */
@@ -21,199 +45,263 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background-color: #6c5ce7;
+    height: 100vh;
+    background-color: #ff6392; /* Light pink */
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     z-index: 9999;
 }
 
 .splash-screen h1 {
     font-size: 3rem;
     margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.splash-screen span {
+    color: #ffe6eb; /* Softer pink for emphasis */
 }
 
 .splash-screen p {
     font-size: 1.2rem;
 }
+/* Splash Screen Logo */
+.splash-screen .logo-container {
+    margin-bottom: 15px; /* Spacing below the logo */
+}
+
+.splash-screen .logo {
+    max-width: 120px; /* Adjust logo size for splash screen */
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Center the logo */
+}
+
 
 /* Main Content */
 .container {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
-    background: white;
+    background-color: #ffffff; /* White background for the container */
+    padding: 30px;
     border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
     text-align: center;
+    max-width: 400px;
+}
+
+/* Buttons */
+.container button {
+    background-color: #ff6392; /* Light pink button */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.container button:hover {
+    background-color: #e55385; /* Darker pink on hover */
+    transform: scale(1.05); /* Slight scaling effect */
 }
 
 /* Modal Styling */
 .modal-content {
     border-radius: 12px;
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .modal-header {
-    background-color: #6c5ce7;
+    background-color: #ff6392; /* Light pink modal header */
     color: white;
 }
 
-.modal-title {
+.modal-header .close {
+    color: white;
     font-size: 1.5rem;
-    font-weight: bold;
 }
 
 .modal-body {
     padding: 20px;
 }
 
-/* Forms */
-.form-control {
-    margin-bottom: 15px;
+/* Role Selection Buttons */
+#roleSelection .btn {
+    margin-bottom: 10px;
+    font-size: 1rem;
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid #ddd;
+    border: none;
 }
 
-/* Buttons */
-.btn {
-    font-size: 1rem;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.btn-info {
-    background-color: #0984e3;
+#roleSelection .btn-info {
+    background-color: #ff6392; /* Light pink for Admin role */
     color: white;
 }
 
-.btn-info:hover {
-    background-color: #0874c1;
+#roleSelection .btn-info:hover {
+    background-color: #e55385;
 }
 
-.btn-success {
-    background-color: #00b894;
+#roleSelection .btn-success {
+    background-color: #00b894; /* Green for User role */
     color: white;
 }
 
-.btn-success:hover {
+#roleSelection .btn-success:hover {
     background-color: #009873;
 }
 
-.btn-primary {
-    background-color: #6c5ce7;
+/* Login Form Button */
+#loginForm .btn-primary {
+    background-color: #ff6392; /* Light pink for login button */
     color: white;
 }
 
-.btn-primary:hover {
-    background-color: #5a4ec7;
+#loginForm .btn-primary:hover {
+    background-color: #e55385;
+    transform: scale(1.05);
 }
-
-/* --- Admin and User Dashboard Styling --- */
-
-/* Admin Dashboard */
-.admin-dashboard h1 {
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.admin-dashboard h3 {
-    font-size: 1.5rem;
-    color: #555;
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-
 /* User Dashboard */
+.user-dashboard {
+    background-color: #ffffff; /* White container background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
 .user-dashboard h1 {
     font-size: 2.5rem;
-    color: #333;
+    color: #ff6392; /* Vibrant pink for title */
     margin-bottom: 20px;
-    text-align: center;
 }
 
 .user-dashboard h3 {
     font-size: 1.5rem;
     color: #555;
-    margin-top: 20px;
-    margin-bottom: 10px;
+    border-bottom: 2px solid #ffaec9; /* Light pink underline */
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
 }
 
-/* List Groups */
-.list-group {
-    margin-top: 10px;
-}
-
-.list-group-item {
-    font-size: 1rem;
-    padding: 10px;
-    border: 1px solid #ddd;
+/* User List Group */
+.user-dashboard .list-group-item {
+    background-color: #fff0f3; /* Light pink background */
+    border: 1px solid #ffaec9; /* Light pink border */
     border-radius: 5px;
+    padding: 10px;
     margin-bottom: 10px;
-    background: #fff;
-    color: #555;
     display: flex;
     justify-content: space-between;
     align-items: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.list-group-item:hover {
+.user-dashboard .list-group-item:hover {
+    background-color: #ffe6eb; /* Slightly darker pink */
     transform: scale(1.02);
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Alerts */
-.alert {
-    font-size: 1rem;
-    padding: 10px 15px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-}
-
-.alert-success {
-    background-color: #d4edda;
-    color: #155724;
-}
-
-.alert-danger {
-    background-color: #f8d7da;
-    color: #721c24;
-}
-
-/* Inputs */
-input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Buttons */
-button {
-    font-size: 1rem;
-    padding: 10px 15px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button.btn-danger {
-    background-color: #e74c3c;
+.user-dashboard .btn {
+    background-color: #ff6392; /* Pink button */
     color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-button.btn-danger:hover {
+.user-dashboard .btn:hover {
+    background-color: #e55385; /* Darker pink */
+    transform: scale(1.05);
+}
+/* Admin Dashboard */
+.admin-dashboard {
+    background-color: #ffffff; /* White container background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.admin-dashboard h1 {
+    font-size: 2.5rem;
+    color: #ff6392; /* Pink for the main heading */
+    margin-bottom: 20px;
+}
+
+.admin-dashboard h3 {
+    font-size: 1.5rem;
+    color: #555;
+    border-bottom: 2px solid #ffaec9;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+/* Admin List Group */
+.admin-dashboard .list-group-item {
+    background-color: #fff0f3; /* Light pink background */
+    border: 1px solid #ffaec9;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.admin-dashboard .list-group-item:hover {
+    background-color: #ffe6eb; /* Slightly darker pink */
+    transform: scale(1.02);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons */
+.admin-dashboard .btn {
+    background-color: #ff6392;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.admin-dashboard .btn:hover {
+    background-color: #e55385; /* Darker pink */
+    transform: scale(1.05);
+}
+
+.admin-dashboard .btn-danger {
+    background-color: #e74c3c;
+}
+
+.admin-dashboard .btn-danger:hover {
     background-color: #c0392b;
+}
+/* --- Logo Styling --- */
+.logo-container {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.logo {
+    max-width: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }

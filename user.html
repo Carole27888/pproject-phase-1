@@ -9,6 +9,10 @@
 </head>
 <body>
     <div class="container user-dashboard mt-5">
+        <!-- Logo -->
+    <div class="logo-container mb-4">
+        <img src="assets/images/logo.jpeg" alt="ChamaNest Logo" class="logo">
+    </div>
         <h1>Welcome, User</h1>
 
         <!-- View Contribution History -->
@@ -28,6 +32,8 @@
         <div class="mt-4">
             <h3>Loan Status</h3>
             <ul id="loanStatus" class="list-group"></ul>
+            <!-- Add Request Loan Button -->
+            <button class="btn btn-success mt-2" onclick="requestLoan()">Request Loan</button>
         </div>
 
         <!-- RSVP Events -->

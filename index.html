@@ -8,16 +8,26 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+    <!-- Decorative Circles -->
+    <div class="decorative-circle top-left"></div>
+    <div class="decorative-circle bottom-right"></div>
+
     <!-- Splash Screen -->
-    <div class="splash-screen" id="splashScreen">
-        <h1>Welcome to <span>ChamaNest</span></h1>
-        <p>Managing Savings Simplified...</p>
+<div class="splash-screen" id="splashScreen">
+    <div class="logo-container mb-3">
+        <img src="assets/images/logo.jpeg" alt="ChamaNest Logo" class="logo">
     </div>
+    <h1>Welcome to <span>ChamaNest</span></h1>
+    <p>Managing Savings Simplified...</p>
+</div>
+
 
     <!-- Main Content -->
     <div class="container mt-5" id="mainContent" style="display: none;">
         <div class="text-center">
-            <button class="btn btn-info" data-toggle="modal" data-target="#authModal">Login / Sign Up</button>
+            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#authModal">
+                Login / Sign Up
+            </button>
         </div>
     </div>
 
@@ -55,6 +65,7 @@
         </div>
     </div>
 
+    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
