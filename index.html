@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chama Savings Tracker</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div class="splash-screen" id="splashScreen">
+        <h1>Welcome to <span>ChamaNest</span></h1>
+        <p>Managing Savings Simplified...</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mt-5" id="mainContent" style="display: none;">
+        <div class="text-center">
+            <button class="btn btn-info" data-toggle="modal" data-target="#authModal">Login / Sign Up</button>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="authModal" tabindex="-1" role="dialog" aria-labelledby="authModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="authModalLabel">Login / Sign Up</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Role Selection -->
+                    <div id="roleSelection">
+                        <h4>Select Role</h4>
+                        <button class="btn btn-info btn-block" onclick="selectRole('admin')">Login as Admin</button>
+                        <button class="btn btn-success btn-block" onclick="selectRole('user')">Login as User</button>
+                    </div>
+
+                    <!-- Login Form -->
+                    <div id="loginForm" style="display: none;">
+                        <h4 id="loginRole">Login</h4>
+                        <div class="form-group">
+                            <input type="email" id="email" class="form-control mb-2" placeholder="Enter Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="password" class="form-control mb-2" placeholder="Enter Password" required>
+                        </div>
+                        <button class="btn btn-primary btn-block" onclick="login()">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

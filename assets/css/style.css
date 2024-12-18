@@ -1,0 +1,219 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Splash Screen */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #6c5ce7;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.splash-screen h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.splash-screen p {
+    font-size: 1.2rem;
+}
+
+/* Main Content */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Modal Styling */
+.modal-content {
+    border-radius: 12px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    background-color: #6c5ce7;
+    color: white;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+/* Forms */
+.form-control {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Buttons */
+.btn {
+    font-size: 1rem;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-info {
+    background-color: #0984e3;
+    color: white;
+}
+
+.btn-info:hover {
+    background-color: #0874c1;
+}
+
+.btn-success {
+    background-color: #00b894;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #009873;
+}
+
+.btn-primary {
+    background-color: #6c5ce7;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #5a4ec7;
+}
+
+/* --- Admin and User Dashboard Styling --- */
+
+/* Admin Dashboard */
+.admin-dashboard h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.admin-dashboard h3 {
+    font-size: 1.5rem;
+    color: #555;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* User Dashboard */
+.user-dashboard h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.user-dashboard h3 {
+    font-size: 1.5rem;
+    color: #555;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* List Groups */
+.list-group {
+    margin-top: 10px;
+}
+
+.list-group-item {
+    font-size: 1rem;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background: #fff;
+    color: #555;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.list-group-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Alerts */
+.alert {
+    font-size: 1rem;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Inputs */
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Buttons */
+button {
+    font-size: 1rem;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.btn-danger {
+    background-color: #e74c3c;
+    color: white;
+}
+
+button.btn-danger:hover {
+    background-color: #c0392b;
+}

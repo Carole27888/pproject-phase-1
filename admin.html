@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container admin-dashboard mt-5">
+        <h1>Welcome, Admin</h1>
+
+        <!-- View Financial Health -->
+        <div class="mt-4">
+            <h3>Financial Summary</h3>
+            <p>Total Contributions: <span id="totalContributions"></span></p>
+            <p>Total Loans Approved: <span id="totalLoans"></span></p>
+        </div>
+
+        <!-- Manage Members -->
+        <div class="mt-4">
+            <h3>Manage Members</h3>
+            <ul id="memberList" class="list-group"></ul>
+            <button class="btn btn-primary mt-2" onclick="addMember()">Add Member</button>
+        </div>
+
+        <!-- Create Events -->
+        <div class="mt-4">
+            <h3>Manage Events</h3>
+            <ul id="eventList" class="list-group"></ul>
+            <button class="btn btn-primary mt-2" onclick="createEvent()">Create Event</button>
+        </div>
+
+        <!-- Export Reports -->
+        <div class="mt-4">
+            <h3>Export Reports</h3>
+            <button class="btn btn-success" onclick="exportReport()">Download Financial Report</button>
+        </div>
+    </div>
+
+    <script src="assets/js/admin.js"></script>
+</body>
+</html>

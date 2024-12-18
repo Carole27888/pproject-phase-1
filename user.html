@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container user-dashboard mt-5">
+        <h1>Welcome, User</h1>
+
+        <!-- View Contribution History -->
+        <div class="mt-4">
+            <h3>Your Contributions</h3>
+            <ul id="contributionHistory" class="list-group"></ul>
+        </div>
+
+        <!-- Add New Contribution -->
+        <div class="mt-4">
+            <h3>Add Contribution</h3>
+            <input type="number" id="newContribution" placeholder="Enter amount" class="form-control mb-2">
+            <button class="btn btn-primary" onclick="addContribution()">Add Contribution</button>
+        </div>
+
+        <!-- Loan Status -->
+        <div class="mt-4">
+            <h3>Loan Status</h3>
+            <ul id="loanStatus" class="list-group"></ul>
+        </div>
+
+        <!-- RSVP Events -->
+        <div class="mt-4">
+            <h3>Group Events</h3>
+            <ul id="eventRSVP" class="list-group"></ul>
+        </div>
+
+        <!-- View Savings Progress -->
+        <div class="mt-4">
+            <h3>Savings Progress</h3>
+            <p>Total Savings: <span id="totalSavings"></span></p>
+        </div>
+    </div>
+
+    <script src="assets/js/user.js"></script>
+</body>
+</html>
