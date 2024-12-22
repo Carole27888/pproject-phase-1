@@ -10,36 +10,42 @@
 <body>
     <div class="container admin-dashboard mt-5">
         <!-- Logo -->
-    <div class="logo-container mb-4">
-        <img src="assets/images/logo.jpeg" alt="ChamaNest Logo" class="logo">
-    </div>
+        <div class="logo-container mb-4">
+            <img src="assets/images/logo.jpeg" alt="ChamaNest Logo" class="logo">
+        </div>
         <h1>Welcome, Admin</h1>
 
-        <!-- View Financial Health -->
+        <!-- Financial Summary Section -->
         <div class="mt-4">
             <h3>Financial Summary</h3>
-            <p>Total Contributions: <span id="totalContributions"></span></p>
-            <p>Total Loans Approved: <span id="totalLoans"></span></p>
+            <p>Total Contributions: <span id="totalContributions">Loading...</span></p>
+            <p>Total Loans Approved: <span id="totalLoans">Loading...</span></p>
         </div>
 
-        <!-- Manage Members -->
+        <!-- Manage Members Section -->
         <div class="mt-4">
             <h3>Manage Members</h3>
             <ul id="memberList" class="list-group"></ul>
             <button class="btn btn-primary mt-2" onclick="addMember()">Add Member</button>
         </div>
 
-        <!-- Create Events -->
+        <!-- Manage Events Section -->
         <div class="mt-4">
             <h3>Manage Events</h3>
             <ul id="eventList" class="list-group"></ul>
             <button class="btn btn-primary mt-2" onclick="createEvent()">Create Event</button>
         </div>
 
-        <!-- Export Reports -->
+        <!-- Manage Loans Section -->
+        <div class="mt-4">
+            <h3>Manage Loans</h3>
+            <ul id="loanList" class="list-group"></ul>
+        </div>
+
+        <!-- Export Financial Reports Section -->
         <div class="mt-4">
             <h3>Export Reports</h3>
-            <button class="btn btn-success" onclick="exportReport()">Download Financial Report</button>
+            <button class="btn btn-success mt-2" onclick="exportReport()">Download Financial Report</button>
         </div>
     </div>
 

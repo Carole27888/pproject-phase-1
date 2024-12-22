@@ -10,40 +10,47 @@
 <body>
     <div class="container user-dashboard mt-5">
         <!-- Logo -->
-    <div class="logo-container mb-4">
-        <img src="assets/images/logo.jpeg" alt="ChamaNest Logo" class="logo">
-    </div>
-        <h1>Welcome, User</h1>
+        <div class="logo-container mb-4">
+            <img src="assets/images/logo.jpeg" alt="ChamaNest Logo" class="logo">
+        </div>
+        <h1 class="text-center mb-4">Welcome, User</h1>
 
         <!-- View Contribution History -->
-        <div class="mt-4">
+        <div class="dashboard-section">
             <h3>Your Contributions</h3>
-            <ul id="contributionHistory" class="list-group"></ul>
+            <ul id="contributionHistory" class="list-group mb-3" style="display: none;"></ul>
+            <button id="toggleContributionsButton" class="btn btn-primary" onclick="toggleVisibility('contributionHistory', 'toggleContributionsButton', 'Show Contributions', 'Hide Contributions')">
+                Show Contributions
+            </button>
         </div>
 
         <!-- Add New Contribution -->
-        <div class="mt-4">
+        <div class="dashboard-section">
             <h3>Add Contribution</h3>
-            <input type="number" id="newContribution" placeholder="Enter amount" class="form-control mb-2">
+            <input type="number" id="newContribution" placeholder="Enter amount" class="form-control mb-3">
             <button class="btn btn-primary" onclick="addContribution()">Add Contribution</button>
         </div>
 
         <!-- Loan Status -->
-        <div class="mt-4">
+        <div class="dashboard-section">
             <h3>Loan Status</h3>
-            <ul id="loanStatus" class="list-group"></ul>
-            <!-- Add Request Loan Button -->
-            <button class="btn btn-success mt-2" onclick="requestLoan()">Request Loan</button>
+            <ul id="loanStatus" class="list-group mb-3" style="display: none;"></ul>
+            <button id="toggleLoanStatusButton" class="btn btn-primary" onclick="toggleVisibility('loanStatus', 'toggleLoanStatusButton', 'Show Loans', 'Hide Loans')">
+                Show Loans
+            </button>
         </div>
 
         <!-- RSVP Events -->
-        <div class="mt-4">
+        <div class="dashboard-section">
             <h3>Group Events</h3>
-            <ul id="eventRSVP" class="list-group"></ul>
+            <ul id="eventRSVP" class="list-group mb-3" style="display: none;"></ul>
+            <button id="toggleEventsButton" class="btn btn-primary" onclick="toggleVisibility('eventRSVP', 'toggleEventsButton', 'Show Events', 'Hide Events')">
+                Show Events
+            </button>
         </div>
 
         <!-- View Savings Progress -->
-        <div class="mt-4">
+        <div class="dashboard-section">
             <h3>Savings Progress</h3>
             <p>Total Savings: <span id="totalSavings"></span></p>
         </div>

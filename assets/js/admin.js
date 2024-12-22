@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fetchFinancialSummary();
     loadMembers();
     loadEvents();
+    loadLoans(); // Load loans on page load
 });
 
 // Fetch Financial Summary
@@ -41,7 +42,7 @@ async function loadMembers() {
                 li.className = "list-group-item d-flex justify-content-between align-items-center";
                 li.innerHTML = `
                     ${user.email}
-                    <button class="btn btn-danger btn-sm" onclick="removeMember(${user.id})">Remove</button>
+                    <button class="btn btn-danger btn-sm" onclick="removeMember('${user.id}')">Remove</button>
                 `;
                 memberList.appendChild(li);
             }
@@ -89,8 +90,12 @@ function removeMember(id) {
 async function loadEvents() {
     try {
         const response = await fetch(`${BASE_URL}/events`);
-        const events = await response.json();
 
+        if (!response.ok) {
+            throw new Error("Failed to fetch events");
+        }
+
+        const events = await response.json();
         const eventList = document.getElementById("eventList");
         eventList.innerHTML = ""; // Clear previous list
 
@@ -99,7 +104,7 @@ async function loadEvents() {
             li.className = "list-group-item d-flex justify-content-between align-items-center";
             li.innerHTML = `
                 ${event.name} - ${event.date}
-                <button class="btn btn-danger btn-sm" onclick="deleteEvent(${event.id})">Delete</button>
+                <button class="btn btn-danger btn-sm" onclick="deleteEvent('${event.id}')">Delete</button>
             `;
             eventList.appendChild(li);
         });
@@ -108,26 +113,43 @@ async function loadEvents() {
     }
 }
 
-// Create New Event
+// Create Event
 function createEvent() {
-    const name = prompt("Enter event name:");
-    const date = prompt("Enter event date (YYYY-MM-DD):");
+    const name = prompt("Enter the event name:");
 
-    if (name && date) {
-        fetch(`${BASE_URL}/events`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ name, date })
-        })
-        .then(response => response.json())
-        .then(() => {
-            alert("Event created successfully!");
-            loadEvents();
-        })
-        .catch(error => console.error("Error creating event:", error));
-    } else {
-        alert("Please enter valid event details.");
+    if (!name) {
+        alert("Event name is required.");
+        return;
     }
+
+    const date = prompt("Enter the event date (YYYY-MM-DD):");
+
+    // Validate the date format
+    const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+    if (!date || !dateRegex.test(date)) {
+        alert("Please enter a valid date in the format YYYY-MM-DD.");
+        return;
+    }
+
+    fetch(`${BASE_URL}/events`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, date }),
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Failed to create event");
+            }
+            return response.json();
+        })
+        .then(newEvent => {
+            alert(`Event "${newEvent.name}" created successfully!`);
+            loadEvents(); // Reload the event list to reflect the new event
+        })
+        .catch(error => {
+            console.error("Error creating event:", error);
+            alert("Failed to create the event. Please try again.");
+        });
 }
 
 // Delete Event
@@ -142,25 +164,61 @@ function deleteEvent(id) {
     }
 }
 
-// Export Financial Report
-function exportReport() {
-    fetch(`${BASE_URL}/contributions`)
-        .then(response => response.json())
-        .then(contributions => {
-            let csvContent = "data:text/csv;charset=utf-8,Date,Amount\n";
-            contributions.forEach(c => {
-                csvContent += `${c.date},${c.amount}\n`;
-            });
+// Load Loans
+async function loadLoans() {
+    try {
+        const loansResponse = await fetch(`${BASE_URL}/loans`);
+        const loans = await loansResponse.json();
 
-            const encodedUri = encodeURI(csvContent);
-            const link = document.createElement("a");
-            link.setAttribute("href", encodedUri);
-            link.setAttribute("download", "financial_report.csv");
-            document.body.appendChild(link);
+        const usersResponse = await fetch(`${BASE_URL}/users`);
+        const users = await usersResponse.json();
 
-            link.click();
-            document.body.removeChild(link);
-            alert("Financial report exported successfully!");
+        const loanList = document.getElementById("loanList");
+        loanList.innerHTML = ""; // Clear previous list
+
+        loans.forEach(loan => {
+            const user = users.find(u => u.id === loan.userId);
+            const userEmail = user ? user.email : "Unknown User";
+
+            const li = document.createElement("li");
+            li.className = "list-group-item d-flex justify-content-between align-items-center";
+            li.innerHTML = `
+                <div>
+                    <strong>User:</strong> ${userEmail}<br>
+                    <strong>Amount:</strong> Ksh ${loan.amount}<br>
+                    <strong>Status:</strong> <span id="status-${loan.id}">${loan.status || "pending"}</span>
+                </div>
+                <div>
+                    <button class="btn btn-success btn-sm" onclick="updateLoanStatus('${loan.id}', 'approved')">Approve</button>
+                    <button class="btn btn-warning btn-sm" onclick="updateLoanStatus('${loan.id}', 'pending')">Pend</button>
+                </div>
+            `;
+            loanList.appendChild(li);
+        });
+    } catch (error) {
+        console.error("Error loading loans:", error);
+    }
+}
+
+// Update Loan Status
+function updateLoanStatus(loanId, status) {
+    fetch(`${BASE_URL}/loans/${loanId}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ status }),
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Failed to update loan status");
+            }
+            return response.json();
         })
-        .catch(error => console.error("Error exporting report:", error));
+        .then(updatedLoan => {
+            document.getElementById(`status-${loanId}`).innerText = updatedLoan.status;
+            alert(`Loan status updated to "${updatedLoan.status}"`);
+        })
+        .catch(error => {
+            console.error("Error updating loan status:", error);
+            alert("Failed to update loan status. Please try again.");
+        });
 }

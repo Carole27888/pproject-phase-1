@@ -8,55 +8,66 @@
       "role": "admin"
     },
     {
-      "id": "2",
-      "name": "Regular User",
-      "email": "user@gmail.com",
-      "password": "user123",
-      "role": "user"
-    },
-    {
       "id": "7445",
       "email": "user1@gmail.com",
       "password": "user1",
+      "role": "user"
+    },
+    {
+      "id": "bd27",
+      "email": "user2@gmail.com",
+      "password": "user234",
       "role": "user"
     }
   ],
   "contributions": [
     {
       "id": "1",
-      "userId": 2,
+      "userId": "7445",
       "amount": 500,
       "date": "2024-12-01"
     },
     {
       "id": "2",
-      "userId": 2,
+      "userId": "7445",
       "amount": 300,
       "date": "2024-12-10"
     },
     {
       "id": "3",
-      "userId": 2,
+      "userId": "7445",
       "amount": 200,
       "date": "2024-12-15"
     },
     {
       "id": "5a0a",
-      "userId": 2,
+      "userId": "7445",
       "amount": 600,
       "date": "2024-12-18"
     },
     {
       "id": "ff28",
-      "userId": 2,
+      "userId": "7445",
       "amount": 200,
       "date": "2024-12-18"
+    },
+    {
+      "id": "50a9",
+      "userId": "7445",
+      "amount": 1000,
+      "date": "2024-12-20"
+    },
+    {
+      "id": "6c6b",
+      "userId": "7445",
+      "amount": 4000,
+      "date": "2024-12-20"
     }
   ],
   "loans": [
     {
       "id": "1",
-      "userId": 2,
+      "userId": "7445",
       "status": "approved",
       "amount": 1000,
       "paid": 300,
@@ -64,24 +75,57 @@
     },
     {
       "id": "2",
-      "userId": 2,
-      "status": "pending",
+      "userId": "7445",
+      "status": "approved",
       "amount": 500,
       "paid": 0,
       "due": 500
     },
     {
       "id": "3",
-      "userId": 2,
-      "status": "pending",
+      "userId": "7445",
+      "status": "approved",
       "amount": 800,
       "paid": 0,
       "due": 800
     },
     {
       "id": "9e2e",
+      "userId": "7445",
+      "status": "approved",
+      "amount": 600,
+      "paid": 0,
+      "due": 600
+    },
+    {
+      "id": "9e79",
+      "userId": "7445",
+      "status": "approved",
+      "amount": 2000,
+      "paid": 0,
+      "due": 2000
+    },
+    {
+      "id": "7ef5",
+      "userId": "7445",
+      "status": "approved",
+      "amount": 3000,
+      "paid": 0,
+      "due": 3000
+    },
+    {
+      "id": "9a2d",
+      "userId": "7445",
+      "status": "approved",
+      "amount": 678,
+      "paid": 0,
+      "due": 678
+    },
+    {
+      "id": "c996",
       "userId": 2,
-      "amount": 600
+      "amount": 1222,
+      "status": "approved"
     }
   ],
   "events": [
@@ -90,6 +134,12 @@
       "name": "Fundraiser Event",
       "date": "2024-12-20",
       "location": "Local School"
+    },
+    {
+      "id": "3",
+      "name": "Holiday Celebration",
+      "date": "2024-12-25",
+      "location": "Community Hall"
     }
   ]
 }

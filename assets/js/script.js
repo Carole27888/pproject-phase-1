@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
         splashScreen.style.display = "none";
         mainContent.style.display = "block";
-    }, 5000);
+    }, 3000);
 });
 
 // Role Selection

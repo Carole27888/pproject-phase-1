@@ -39,15 +39,15 @@ body {
     right: -50px;
 }
 
-/* Splash Screen */
 .splash-screen {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: #ff6392; /* Light pink */
-    color: white;
+    background: url('/assets/images/sps.jpeg') no-repeat center center; /* Background image */
+    background-size: cover; /* Ensures the image covers the entire screen */
+    color: white; /* Text color */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -56,29 +56,95 @@ body {
     z-index: 9999;
 }
 
-.splash-screen h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
 
-.splash-screen span {
-    color: #ffe6eb; /* Softer pink for emphasis */
-}
-
-.splash-screen p {
-    font-size: 1.2rem;
-}
-/* Splash Screen Logo */
 .splash-screen .logo-container {
-    margin-bottom: 15px; /* Spacing below the logo */
+    margin-bottom: 20px;
 }
 
 .splash-screen .logo {
-    max-width: 120px; /* Adjust logo size for splash screen */
+    max-width: 150px;
     height: auto;
-    display: block;
-    margin: 0 auto; /* Center the logo */
+    animation: bounce 2s infinite;
+}
+
+/* Heading Animation */
+.animate-heading {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+    animation: slideIn 1.5s ease-in-out;
+}
+
+.animate-heading span {
+    color: #ffe6eb; /* Softer pink for emphasis */
+}
+
+/* Subheading Animation */
+.animate-subheading {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Loading Bar */
+.loading-bar {
+    width: 80%;
+    max-width: 400px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.loading-bar .progress {
+    width: 0;
+    height: 100%;
+    background-color: white;
+    border-radius: 5px;
+    animation: loadProgress 3s ease-in-out forwards;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes loadProgress {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
 }
 
 
@@ -165,7 +231,7 @@ body {
     background-color: #e55385;
     transform: scale(1.05);
 }
-/* User Dashboard */
+/* User Dashboard Section Styling */
 .user-dashboard {
     background-color: #ffffff; /* White container background */
     padding: 20px;
@@ -173,29 +239,77 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     text-align: center;
     width: 100%;
-    max-width: 1200px;
+    max-width: 800px; /* Adjusted for more content */
     margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.user-dashboard h1 {
-    font-size: 2.5rem;
-    color: #ff6392; /* Vibrant pink for title */
-    margin-bottom: 20px;
-}
-
-.user-dashboard h3 {
-    font-size: 1.5rem;
-    color: #555;
-    border-bottom: 2px solid #ffaec9; /* Light pink underline */
-    display: inline-block;
-    padding-bottom: 5px;
-    margin-bottom: 15px;
-}
-
-/* User List Group */
-.user-dashboard .list-group-item {
+/* Dashboard Section Layout */
+.dashboard-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Stack subtopic and button vertically */
+    align-items: center; /* Center-align content */
     background-color: #fff0f3; /* Light pink background */
-    border: 1px solid #ffaec9; /* Light pink border */
+    border: 1px solid #ffaec9; /* Pink border */
+}
+
+/* Subtopic Styling */
+.dashboard-section h3 {
+    margin-bottom: 15px;
+    color: #ff6392; /* Vibrant pink for subtopics */
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* Buttons Styling */
+.dashboard-section button {
+    margin-top: 10px; /* Space between the subtopic and button */
+    background-color: #ff6392; /* Light pink button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.dashboard-section button:hover {
+    background-color: #e55385; /* Darker pink on hover */
+    transform: scale(1.05); /* Slight scaling effect */
+}
+
+/* Input Field Styling */
+.dashboard-section input {
+    margin-bottom: 10px; /* Space below input field */
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center; /* Center text inside input */
+}
+
+/* List Items Styling */
+.dashboard-section ul {
+    list-style: none;
+    padding: 0;
+    width: 100%; /* Full width of the container */
+    display: none; /* Hide by default */
+}
+
+.dashboard-section ul.list-group {
+    display: block; /* Show when toggled */
+}
+
+.dashboard-section .list-group-item {
+    background-color: #fff0f3; /* Light pink background */
+    border: 1px solid #ffaec9; /* Pink border */
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px;
@@ -205,26 +319,19 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.user-dashboard .list-group-item:hover {
+.dashboard-section .list-group-item:hover {
     background-color: #ffe6eb; /* Slightly darker pink */
     transform: scale(1.02);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Buttons */
-.user-dashboard .btn {
-    background-color: #ff6392; /* Pink button */
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+/* Savings Progress Styling */
+.dashboard-section p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ff6392; /* Pink for emphasis */
 }
 
-.user-dashboard .btn:hover {
-    background-color: #e55385; /* Darker pink */
-    transform: scale(1.05);
-}
 /* Admin Dashboard */
 .admin-dashboard {
     background-color: #ffffff; /* White container background */
